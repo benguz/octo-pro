@@ -3,7 +3,7 @@
   "publisher": "benguz",
   "displayName": "promptoctopus",
   "description": "Highlight your prompt and schema to instantly compare results from multiple llms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "assets/icon.png",
   "engines": {
     "vscode": "^1.96.0"
