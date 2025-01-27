@@ -29,8 +29,8 @@
     "keybindings": [
       {
         "command": "extension.checkText",
-        "key": "ctrl+alt+c",
-        "mac": "cmd+option+c",
+        "key": "ctrl+shift+j",
+        "mac": "ctrl+shift+j",
         "when": "editorTextFocus && editorHasSelection"
       }
     ]
