@@ -1,0 +1,45 @@
+# promptoctopus README
+
+Prompt Octopus lets you compare LLM responses in seconds. Highlight your system prompt, enter user messages and images, and get a side-by-side comparison of responses from any and all LLMs.
+
+## Features
+
+Run the same prompt on multiple LLMs and compare the results.
+\!\[demo video\]\(assets/extension_demo.webm\)
+
+Access the latest models from OpenAI, Anthropic, Deepseek, Llama, Mistral, and more :)
+
+Enter your own API keys (stored locally, never seen by our servers) for unlimited usage. Once you enter keys, local use will be the default behavior.
+
+Paid users get higher usage limits on Prompt Octopus servers and priority support, but everybody can ask questions at promptoctopus@gmail.com!
+
+\!\[feature X\]\(images/feature-x.png\)
+
+## Requirements
+
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+
+## Extension Settings
+
+Add personal api keys by running the `promptoctopus.useLocalKeys` command (cmd/ctrl+shift+p and search "Prompt Octopus: Use Personal API Keys Locally").
+
+## Known Issues
+
+We're working to speed up response times for reasoning models - particularly Deepseek!
+
+## Release Notes
+
+### 0.1.0
+
+Initial release!
+
+---
+
+## Following extension guidelines
+
+Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+
+* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+
+
+**Enjoy!**
