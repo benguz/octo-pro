@@ -16,11 +16,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.checkText",
+        "command": "promptoctopus.checkText",
         "title": "Check Text with API"
       },
       {
-          "command": "extension.startAuth",
+          "command": "promptoctopus.startAuth",
           "title": "Authenticate with Prompt Octopus"
       },
       {
@@ -30,9 +30,9 @@
     ],
     "keybindings": [
       {
-        "command": "extension.checkText",
-        "key": "ctrl+shift+j",
-        "mac": "ctrl+shift+j",
+        "command": "promptoctopus.checkText",
+        "key": "ctrl+alt+j",
+        "mac": "cmd+alt+j",
         "when": "editorTextFocus && editorHasSelection"
       }
     ]

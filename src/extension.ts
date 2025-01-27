@@ -39,7 +39,8 @@ const SECRET_KEYS = {
 
 export async function activate(context: vscode.ExtensionContext) {
     let statusBarHint: vscode.StatusBarItem | undefined;
-   
+    let statusBarItem: vscode.StatusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
+
     // Add state management for history
     let messageHistory: string[] = context.globalState.get('messageHistory', []);
     let imageUrlHistory: string[] = context.globalState.get('imageUrlHistory', []);
@@ -126,9 +127,8 @@ export async function activate(context: vscode.ExtensionContext) {
     let uuid: string = context.globalState.get('uuid', '');
     if (!uuid || uuid === '') {
         // add indication that we're performing initial setup
-        const statusBar = getStatusBarItem();
-        statusBar.text = "$(sync~spin) Setting up extension...";
-        statusBar.show();
+        statusBarItem.text = "$(sync~spin) Setting up extension...";
+        statusBarItem.show();
         
         const response = await fetch('https://server.promptoctopus.com/get_free_token', {
             method: 'POST',
@@ -139,7 +139,7 @@ export async function activate(context: vscode.ExtensionContext) {
         console.log("updating_uuid");
         await context.globalState.update('uuid', uuid);
         
-        statusBar.hide();
+        statusBarItem.hide();
     };
     console.log(uuid);
     console.log(apiKey);
@@ -163,7 +163,7 @@ export async function activate(context: vscode.ExtensionContext) {
     //     }
     // });
     // context.subscriptions.push(uriHandler);
-    const authCommand = vscode.commands.registerCommand('extension.startAuth', () => {
+    const authCommand = vscode.commands.registerCommand('promptoctopus.startAuth', () => {
         // prompt to enter an email or auth token
         vscode.window.showInputBox({
             prompt: 'Enter the token you received in your email',
@@ -225,7 +225,7 @@ export async function activate(context: vscode.ExtensionContext) {
         if (!statusBarHint) {
             statusBarHint = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
         }
-        statusBarHint.text = 'Press ctrl+shift+j to eval selected text';
+        statusBarHint.text = 'Press ctrl+alt+j to eval selected text';
         statusBarHint.show();
     }
 
@@ -248,18 +248,8 @@ export async function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    let statusBarItem: vscode.StatusBarItem;
-
-    // Create status bar item if it doesn't exist
-    function getStatusBarItem() {
-        if (!statusBarItem) {
-            statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-        }
-        return statusBarItem;
-    }
-
     // Command to handle the API call
-    const disposable = vscode.commands.registerCommand('extension.checkText', async () => {
+    const disposable = vscode.commands.registerCommand('promptoctopus.checkText', async () => {
         const MAX_FREE_REQUESTS = 10;
         const MAX_PAID_REQUESTS = 500;
         if (!isPaidUser && requestCount >= MAX_FREE_REQUESTS) {
@@ -271,7 +261,7 @@ export async function activate(context: vscode.ExtensionContext) {
                 if (selection === 'Upgrade') {
                     vscode.env.openExternal(vscode.Uri.parse('https://promptoctopus.com/signup'));
                 } else if (selection === 'Log in') {
-                    vscode.commands.executeCommand('extension.startAuth');
+                    vscode.commands.executeCommand('promptoctopus.startAuth');
                 }
             });
             return;
@@ -417,11 +407,10 @@ export async function activate(context: vscode.ExtensionContext) {
                             enableCommandUris: true,
                         }
                     );
-                    const statusBar = getStatusBarItem();
                     try {
                         // Show loading in both status bar and panel
-                        statusBar.text = "$(sync~spin) Processing request...";
-                        statusBar.show();
+                        statusBarItem.text = "$(sync~spin) Processing request...";
+                        statusBarItem.show();
             
                         panel.webview.html = `
                             <!DOCTYPE html>
@@ -499,14 +488,14 @@ export async function activate(context: vscode.ExtensionContext) {
                             </body>
                             </html>
                         `;
-                        statusBar.hide();
+                        statusBarItem.hide();
 
                     } catch (error) {
                         vscode.window.showErrorMessage(`Error: ${error}`);
                         // close the panel
                         panel.dispose();
                         // close status bar
-                        statusBar.hide();
+                        statusBarItem.hide();
                     }
                 });
             });
