@@ -13,6 +13,8 @@ Enter your own API keys (stored locally, never seen by our servers) for unlimite
 
 Paid users get higher usage limits on Prompt Octopus servers and priority support, but everybody can ask questions at promptoctopus@gmail.com!
 
+\!\[feature demo\]\(assets/moon_prompt.png\)
+
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
@@ -33,11 +35,6 @@ Initial release!
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
+## Following extension 
 
 **Enjoy!**

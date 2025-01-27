@@ -225,7 +225,7 @@ export async function activate(context: vscode.ExtensionContext) {
         if (!statusBarHint) {
             statusBarHint = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
         }
-        statusBarHint.text = 'Press ctrl/cmd+shift+j to eval selected text';
+        statusBarHint.text = 'Press ctrl+shift+j to eval selected text';
         statusBarHint.show();
     }
 
