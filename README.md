@@ -5,7 +5,7 @@ Prompt Octopus lets you compare LLM responses in seconds. Highlight your system 
 ## Features
 
 Highlight text with Run the same prompt on multiple LLMs and compare the results.
-\!\[demo video\]\(assets/extension_demo.webm\)
+\!\[demo video\]\(assets/extension_demo.gif\)
 
 Access the latest models from OpenAI, Anthropic, Deepseek, Llama, Mistral, and more :)
 
