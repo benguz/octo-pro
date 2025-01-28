@@ -5,7 +5,7 @@ Prompt Octopus lets you compare LLM responses in seconds. Highlight your system 
 ## Features
 
 Highlight text with Run the same prompt on multiple LLMs and compare the results.
-\!\[demo video\]\(assets/extension_demo.gif\)
+\!\[demo video\]\(/assets/extension_demo.gif\)
 
 Access the latest models from OpenAI, Anthropic, Deepseek, Llama, Mistral, and more :)
 
@@ -13,7 +13,7 @@ Enter your own API keys (stored locally, never seen by our servers) for unlimite
 
 Paid users get higher usage limits on Prompt Octopus servers and priority support, but everybody can ask questions at promptoctopus@gmail.com!
 
-\!\[feature demo\]\(assets/moon_prompt.png\)
+\!\[feature demo\]\(/assets/moon_prompt.png\)
 
 ## Requirements
 
@@ -38,3 +38,6 @@ Initial release!
 ## Following extension 
 
 **Enjoy!**
+
+---
+Logo image comes from an open source project: Twemoji. The graphics are copyright 2020 Twitter, Inc and other contributors. The graphics are licensed under CC-BY 4.0.
