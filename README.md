@@ -1,6 +1,6 @@
 # promptoctopus README
 
-Prompt Octopus lets you compare LLM responses in seconds. Highlight your system prompt, press ctrl+alt+j, enter user messages and images, and get a side-by-side comparison of responses from any and all LLMs.
+Prompt Octopus lets you compare LLM responses in seconds. Highlight your system prompt, press ctrl+shift+j, enter user messages and images, and get a side-by-side comparison of responses from any and all LLMs.
 
 ## Features
 

@@ -123,6 +123,21 @@ const shouldUseLocalApi = (model: string): boolean => {
 	return false;
 };
 
+const isFirstInstall = !context.globalState.get('hasShownKeybindingMessage');
+if (isFirstInstall) {
+	const action = await vscode.window.showInformationMessage(
+		'Prompt Octopus has been configured to run when you highlight text and hit Ctrl+Shift+J (Cmd+Shift+J on Mac) for text evaluation. If you have existing ctrl+shift+j shortcuts, they have been overriden only in the case where text is selected. You can change this in File > Preferences > Keyboard Shortcuts.',
+		'Open Keyboard Shortcuts',
+		'OK'
+	);
+	
+	if (action === 'Open Keyboard Shortcuts') {
+		await vscode.commands.executeCommand('workbench.action.openGlobalKeybindings', 'promptoctopus.checkText');
+	}
+	
+	await context.globalState.update('hasShownKeybindingMessage', true);
+}
+
 // check if there is a uuid for the user, if not, create one
 let uuid: string = context.globalState.get('uuid', '');
 if (!uuid || uuid === '') {
@@ -225,7 +240,7 @@ function showHint() {
 	if (!statusBarHint) {
 		statusBarHint = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
 	}
-	statusBarHint.text = 'Press ctrl+alt+j to eval selected text';
+	statusBarHint.text = 'Press ctrl+shift+j to eval selected text';
 	statusBarHint.show();
 }
 
